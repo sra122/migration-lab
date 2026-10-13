@@ -1,13 +1,10 @@
 import unittest
-from app import health_payload
+from app import greeting
 
 
-class HealthPayloadTests(unittest.TestCase):
-    def test_health_payload_has_ok_status(self):
-        self.assertEqual(health_payload()["status"], "ok")
-
-    def test_health_payload_has_service_name(self):
-        self.assertEqual(health_payload()["service"], "migration-lab")
+class GreetingTests(unittest.TestCase):
+    def test_greeting_mentions_migration_lab(self):
+        self.assertIn("migration lab", greeting())
 
 
 if __name__ == "__main__":
